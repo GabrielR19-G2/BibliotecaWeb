@@ -12,6 +12,10 @@
         <servlet-name>ObtenRevistas</servlet-name>
         <servlet-class>acciones.ObtenRevistas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>obtenRevistas</servlet-name>
+        <servlet-class>acciones.ObtenRevistas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>control</servlet-name>
         <url-pattern>/control</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>ObtenRevistas</servlet-name>
         <url-pattern>/ObtenRevistas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>obtenRevistas</servlet-name>
+        <url-pattern>/obtenRevistas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
