@@ -1,0 +1,165 @@
+/* 
+    estilos.css
+
+    Establece las reglas de estilo para la aplicacion bibliotecaWeb.
+
+    Karla Ximena Islas Cruz ID: 213090
+    Gabriel Francisco Piñuelas Ramos ID: 230626
+*/
+
+/* Este es el contenedor grid para la distribución de la página. 
+    Tiene dos columnas y tres filas */
+.container{
+    display: grid;
+    background-color: lightblue;
+    grid-template-rows: 120px calc(100vh - 222px) 100px;
+    grid-template-columns: 150px calc(100vw - 151px); 
+}
+
+/* Barra de titulo. Este elemento esta en la primera filas
+   y abarca dos columnas */
+header {
+    grid-column: 1 / span 2;
+    text-align: center;
+    color: rgb(67, 36, 108);
+    font-size: 23px;
+    background:rgb(255, 239, 217);
+    border-bottom: 1px solid rgb(3, 4, 94);
+}
+
+/* Reglas de estilo para los elementos del cuerpo de página.*/
+body{
+    font-family: Arial sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Principal. Este elemento esta en la segunda fila, segunda columna */
+main {
+    overflow: scroll;
+}
+
+/* Barra de navegacion. Este elemento esta en la segunda fila,
+   primera columna */
+nav {
+    border-right: 1px solid rgb(3, 4, 94);
+    background-color: rgb(255, 239, 217); 
+}
+
+/* Regla de estilo para las ligas que forman los elementos de
+   la lista dentro de la barra de navegacion */
+nav a {
+    display: block;
+    text-decoration: none;
+    background-color: lightblue;
+    padding: 0 10px;
+    border-bottom: 1px solid rgb(3, 4, 94);
+}
+
+/* Regla de estilo para las ligas no visitadas dentro de la 
+   barra de navegacion */
+nav a:link {
+    color: rgb(236, 0, 87); 
+}
+
+/* Regla de estilo para las ligas visitadas dentro de la 
+   barra de navegacion */
+nav a:visited {
+    color: rgb(116, 41, 98); 
+}
+
+/* Regla de estilo para las ligas dentro de la barra de navegacion
+   sobre las que se pasa el raton */
+nav a:hover {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    background-color: rgb(0, 180, 216); 
+}
+
+main h1, h2, h3, h4{
+    text-align: center;
+    font-size: 25px;
+    color: rgb(67, 36, 108);
+}
+
+/* Pie de pagina. Este elemento esta en la tercera fila
+   y abarca dos columnas */
+footer {
+    grid-column: 1 / span 2;
+    text-align: center;
+    color: rgb(45, 23, 72);
+    border-top: 1px solid rgb(3, 4, 94);
+    background:rgb(255, 239, 217);
+}
+
+img.logo{
+    float: left;
+    width: 176px;
+    height: 75px;
+}
+
+.contenedorFormulario {
+    display: grid;
+    margin: auto;
+    grid-template-columns: 50% auto auto;
+    gap: 5px;
+}
+
+.contenedorFormulario > div.span {
+    grid-column: 1 / span 3;
+}
+
+.contenedorFormulario > div.centrada {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedorFormulario > div.derecha {
+    text-align: right;
+}
+
+div.centrada {
+    text-align: center;
+}
+
+table#lista{
+    margin: auto;
+    border: 3px double rgb(3, 4, 94);
+    caption-side: top;
+    border-collapse: collapse;
+    empty-cells: show;
+    vertical-align: middle;
+}
+
+table.centrada {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+caption {
+   caption-side: top;
+   margin-bottom: 0.5em;
+   font-weight: bold;
+}
+
+table#lista td{
+    padding: 10px;
+    border: 0.5px solid rgb(3, 4, 94);
+}
+
+td.derecha {
+    font-weight: bold;
+    text-align: right;
+    padding-right: 5px;
+}
+
+/* Regla de estilo para las celdas de tabla con fondo gris
+   usadas en las celdas que se despliegan los valores de 
+   los miembros de un objeto */
+td.gris {
+    background-color: #ddd;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid #888;
+}

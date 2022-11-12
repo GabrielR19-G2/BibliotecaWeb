@@ -1,0 +1,14 @@
+<%-- 
+    menuPpal.jspf
+
+    Este fragmento de página JSP es el menú principal de la aplicación bibliotecaWeb
+
+    Karla Ximena Islas Cruz ID: 213090
+    Gabriel Francisco Piñuelas Ramos ID: 230626
+--%>
+<%@ page pageEncoding="UTF-8" %>
+
+<nav id="navegador">
+    <a href = "revistas.jsp">Catálogo de revistas</a>
+    <a href = "inventario.jsp">Inventario de revistas</a>
+</nav>

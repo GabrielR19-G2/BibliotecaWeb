@@ -1,0 +1,16 @@
+<%-- 
+    menuInventario.jspf
+
+    Este fragmento de página JSP es el menú del inventario de revistas de la aplicación bibliotecaWeb.
+
+    Karla Ximena Islas Cruz ID: 213090
+    Gabriel Francisco Piñuelas Ramos ID: 230626
+--%>
+<%@ page pageEncoding="UTF-8" %>
+
+<nav id="navegador">
+    <a href = "capturaRevistaInventariar.jsp">Inventariar revista</a>
+    <a href = "capturaRevistaDesinventariar.jsp">Desinventariar revista</a>
+    <a href = "despliegaInventarioRevistas.jsp">Consultar inventario de revistas</a>
+    <a href = "index.jsp">Regresar a menú principal</a>
+</nav>

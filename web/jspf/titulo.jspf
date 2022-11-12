@@ -1,0 +1,14 @@
+<%-- 
+    titulo.jspf
+
+    Este fragmento de página JSP es el encabezado de la aplicación BibliotecaWeb 
+
+    Karla Ximena Islas Cruz ID: 213090
+    Gabriel Francisco Piñuelas Ramos ID: 230626
+--%>
+<%@ page pageEncoding="UTF-8" %>
+
+<header class="encabezado">
+    <img class= "logo" src="imagenes/logo.png" alt="Logotipo">
+    <h1>Biblioteca web</h1>
+</header>

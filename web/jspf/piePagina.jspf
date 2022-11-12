@@ -1,0 +1,16 @@
+<%-- 
+    piePagina.jspf
+
+    Este fragmento de página JSP contiene el pie de pagina de la aplicación bibliotecaWeb. 
+    
+    Karla Ximena Islas Cruz ID: 213090
+    Gabriel Francisco Piñuelas Ramos ID: 230626
+--%>
+
+<%@ page pageEncoding="UTF-8" %>
+
+<footer>
+    <p> 
+        Gabriel Francisco Piñuelas Ramos: gabriel.pinuelas230626@potros.itson.edu.mx <br>
+        Karla Ximena Islas Cruz: karla.islas213090@potros.itson.edu.mx</p>
+</footer>

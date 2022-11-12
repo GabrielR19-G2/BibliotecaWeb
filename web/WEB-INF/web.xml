@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>control</servlet-name>
+        <servlet-class>acciones.Control</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>agregaRevista</servlet-name>
+        <servlet-class>acciones.AgregaRevista</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ObtenRevistas</servlet-name>
+        <servlet-class>acciones.ObtenRevistas</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>control</servlet-name>
+        <url-pattern>/control</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agregaRevista</servlet-name>
+        <url-pattern>/agregaRevista</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ObtenRevistas</servlet-name>
+        <url-pattern>/ObtenRevistas</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
