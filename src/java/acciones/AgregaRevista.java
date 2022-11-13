@@ -1,12 +1,14 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ *  Este servlet valida los datos de una revista y la agrega a la BD.
+ *
+ *  Karla Ximena Islas Cruz ID: 213090
+ *  Gabriel Francisco Piñuelas Ramos ID: 230626
  */
+
 package acciones;
 
 import interfaces.IPersistencia;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Map;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -58,7 +60,6 @@ public class AgregaRevista extends HttpServlet {
             revista.setIsbn((String) request.getParameter("isbn"));
             revista.setTitulo((String) request.getParameter("titulo"));
             revista.setClasificacion((String) request.getParameter("clasificacion"));
-            //revista.setFecha(fecha);
             
             campo = request.getParameter("editorial");
             if(!campo.equals(""))
@@ -77,6 +78,12 @@ public class AgregaRevista extends HttpServlet {
                 revista.setPeriodicidad(campo);
             else 
                 revista.setPeriodicidad(null);
+            
+            campo = request.getParameter("fecha");
+            if(!campo.equals(""))
+                revista.setFecha(new Fecha(campo));
+            else 
+                revista.setFecha(null);
             
             // Crea el objeto para acceder a la base de datos
             IPersistencia fachada = new PersistenciaBD();

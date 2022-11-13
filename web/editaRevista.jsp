@@ -34,10 +34,10 @@
                 <c:choose>
                     <c:when test="${revista != null}">
                         <%-- Formulario para modificar los atributos de una revista.
-                             Los datos se envían al servlet actualizaRevista para actualizar la revista en la BD.
+                             Los datos se envían al servlet actualizarRevista para actualizar la revista en la BD.
                              Este formulario se usa la primera vez que se intenta modificar los atributos de la revista.
                         --%>
-                        <form action="actualizaRevista" method="post" name="editaRevista" >
+                        <form action="actualizarRevista" method="post" name="editaRevista" >
 
                             <%-- Despliega los datos de la revista para editarlos. Los datos se encuentran en el bean 
                                  revista guardados en el objeto request por el servlet obtenRevistaEditar.
@@ -123,7 +123,7 @@
 
                     </c:when>
                     <c:otherwise>
-                        <form action="actualizaRevista" method="post" name="reEditaRevista" novalidate >
+                        <form action="actualizarRevista" method="post" name="reEditaRevista" novalidate >
 
                             <%-- Despliega los datos de la revista para reeditarlos, esto es para corregirlos si 
                                  hubo un error de validacion. Los datos se encuentran como parametros de la solicitud.

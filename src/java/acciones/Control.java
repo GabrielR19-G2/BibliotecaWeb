@@ -1,3 +1,10 @@
+/*
+ *  Este servlet guarda la tarea seleccionada en la variable de estado, y
+ *  selecciona la página JSP o servlet siguiente.
+ *
+ *  Karla Ximena Islas Cruz ID: 213090
+ *  Gabriel Francisco Piñuelas Ramos ID: 230626
+ */
 package acciones;
 
 import java.io.IOException;
@@ -8,11 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- * Clase control
- *
- * @author xmnislas, Gabriel Piñuelas
- */
 public class Control extends HttpServlet {
 
     /**
@@ -47,7 +49,7 @@ public class Control extends HttpServlet {
                 siguiente = "obtenRevistas";
                 break;
             case "listarRevistas":
-                siguiente = "despliegaRevistas.jsp";
+                siguiente = "obtenRevistas";
                 break;
             default:
                 break;
@@ -55,7 +57,6 @@ public class Control extends HttpServlet {
 
         // Redirecciona a la página JSP siguiente
         request.getRequestDispatcher(siguiente).forward(request, response);
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
