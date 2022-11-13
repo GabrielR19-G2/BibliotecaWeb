@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package acciones;
 
 import java.io.IOException;
@@ -13,8 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
+ * Clase control
  *
- * @author xmnislas
+ * @author xmnislas, Gabriel Piñuelas
  */
 public class Control extends HttpServlet {
 
@@ -29,7 +26,7 @@ public class Control extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Obten de la solicitud, la tarea seleccionada del menú de revistas
         String tareaSeleccionada = request.getParameter("tarea");
-        
+
         // Obten el objeto session que contiene a las variables con ámbito de sesion
         HttpSession session = request.getSession();
         RequestDispatcher rd;
@@ -58,7 +55,7 @@ public class Control extends HttpServlet {
 
         // Redirecciona a la página JSP siguiente
         request.getRequestDispatcher(siguiente).forward(request, response);
-    
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
