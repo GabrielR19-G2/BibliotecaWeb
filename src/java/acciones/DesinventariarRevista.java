@@ -5,8 +5,10 @@
 package acciones;
 
 /**
+ * Esta página .java permite agregar/inventariar revistas a la biblioteca. Karla
+ * Ximena Islas Cruz ID: 213090 Gabriel Francisco Piñuelas Ramos ID: 230626
  *
- * @author gabri
+ * @author Ximena Islas, Gabriel Piñuelas
  */
 public class DesinventariarRevista {
     
