@@ -1,6 +1,8 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ *  Este servlet obtiene los datos de una revista.
+ *
+ *  Karla Ximena Islas Cruz ID: 213090
+ *  Gabriel Francisco Piñuelas Ramos ID: 230626
  */
 package acciones;
 
@@ -19,10 +21,6 @@ import objetosTransferencia.Mensaje;
 import persistencia.PersistenciaBD;
 import utils.Validaciones;
 
-/**
- *
- * @author xmnislas
- */
 @WebServlet(name = "obtenRevista", urlPatterns = {"/obtenRevista"})
 public class ObtenRevista extends HttpServlet {
 
@@ -41,7 +39,7 @@ public class ObtenRevista extends HttpServlet {
         Validaciones validaciones = new Validaciones();
 
         // valida la clave de la revista
-        Map<String, Mensaje> mensajes  = validaciones.validaIsbnRevista(request);
+        Map<String, Mensaje> mensajes = validaciones.validaIsbnRevista(request);
 
         // Si la validación falla
         if (!mensajes.isEmpty()) {
@@ -54,7 +52,7 @@ public class ObtenRevista extends HttpServlet {
 
             // Obten el objeto session que contiene a las variables con ámbito de sesion
             HttpSession session = request.getSession();
-            
+
             // Obten de la variable de sesion tareaSeleccionada, la tarea seleccionada
             String tareaSeleccionada = (String) session.getAttribute("tareaSeleccionada");
 
@@ -74,10 +72,17 @@ public class ObtenRevista extends HttpServlet {
                 request.setAttribute("revista", revista);
 
                 siguiente = "despliegaRevista.jsp";
-            }else {
-                siguiente = "capturaRevista.jsp";
+            } else {
+                switch (tareaSeleccionada) {
+                    case "agregarRevista":
+                        siguiente = "capturaRevista.jsp";
+                        break;
+                    case "actualizarRevista":
+                        siguiente = "editaRevista.jsp";
+                        break;
+                }
             }
-          
+
             // Establece la página JSP o servlet siguiente
             rd = request.getRequestDispatcher(siguiente);
         }

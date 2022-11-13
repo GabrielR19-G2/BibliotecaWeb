@@ -1,5 +1,5 @@
 /*
- *  Este servlet valida los datos de una revista y la agrega a la BD.
+ *  Este servlet elimina de la BD las revistas seleccionadas.
  *
  *  Karla Ximena Islas Cruz ID: 213090
  *  Gabriel Francisco Piñuelas Ramos ID: 230626
@@ -8,6 +8,7 @@ package acciones;
 
 import interfaces.IPersistencia;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,12 +17,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import objetosNegocio.Revista;
-import objetosServicio.Fecha;
 import objetosTransferencia.Mensaje;
 import persistencia.PersistenciaBD;
-import utils.Validaciones;
 
-public class AgregaRevista extends HttpServlet {
+public class EliminarRevistas extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,68 +33,42 @@ public class AgregaRevista extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd;
-        Validaciones validaciones = new Validaciones();
 
-        // Valida los datos de la revista
-        Map<String, Mensaje> mensajes = validaciones.validaRevista(request);
+        // Obten la lista de isbns de las revistas a eliminar
+        String isbns[] = (String[]) request.getParameterValues("isbns");
 
-        // Si la validación falla
-        if (!mensajes.isEmpty()) {
+        if (isbns == null) {
+            Map<String, Mensaje> mensajes = new HashMap<>();
+            Mensaje mensaje;
+
+            // crea mensaje de error
+            mensaje = new Mensaje("Error: No se seleccionaron revistas para eliminar", "msjError");
+            
+            // Agrega el mensaje de error a la lista de errores
+            mensajes.put("revistas", mensaje);
+            
+            // Crea la variable de solicitud mensajes, con los mensajes de error
             request.setAttribute("mensajes", mensajes);
 
-            // Establece que la página siguiente es capturaRevista.jsp
-            rd = request.getRequestDispatcher("capturaRevista.jsp");
+            // Establece que la página siguiente es seleccionaRevistasEliminar.jsp
+            rd = request.getRequestDispatcher("seleccionaRevistasEliminar.jsp");
         } else {
-            // En este bean de tipo Revista, se almacenan los atributos de una
-            //  revista enviada por la página capturaRevista.jsp.
-            Revista revista = new Revista();
-            String campo;
-
-            // Obtiene de la solicitud los datos de una revista y los guarda al bean revista
-            revista.setIsbn((String) request.getParameter("isbn"));
-            revista.setTitulo((String) request.getParameter("titulo"));
-            revista.setClasificacion((String) request.getParameter("clasificacion"));
-            
-            campo = request.getParameter("editorial");
-            if(!campo.equals(""))
-                revista.setEditorial(campo);
-            else 
-                revista.setEditorial(null);
-            
-            campo = request.getParameter("clasificacion");
-            if(!campo.equals(""))
-                revista.setClasificacion(campo);
-            else 
-                revista.setClasificacion(null);
-            
-            campo = request.getParameter("periodicidad");
-            if(!campo.equals(""))
-                revista.setPeriodicidad(campo);
-            else 
-                revista.setPeriodicidad(null);
-            
-            campo = request.getParameter("fecha");
-            if(!campo.equals(""))
-                revista.setFecha(new Fecha(campo));
-            else 
-                revista.setFecha(null);
-            
             // Crea el objeto para acceder a la base de datos
             IPersistencia fachada = new PersistenciaBD();
 
-            // Agrega la nueva canción al catálogo de canciones
-            fachada.agregar(revista);
-
+            for(String isbn: isbns) {
+                // Elimina la revista del catálogo
+                fachada.eliminar(new Revista(isbn));
+            }
+            
             // Obten el objeto session que contiene a las variables con ámbito de sesion
             HttpSession session = request.getSession();
 
-            // Guarda en la variable de sesión tareaSel, la tarea arealizar
+            // Guarda en la variable de sesión tareaSeleccionada, la tarea a realizar
             session.setAttribute("tareaSeleccionada", "listarRevistas");
 
-            // Establece la página JSP o servlet siguiente
             rd = request.getRequestDispatcher("obtenRevistas");
         }
-        // Redirecciona a la página JSP o servlet siguiente
         rd.forward(request, response);
     }
 

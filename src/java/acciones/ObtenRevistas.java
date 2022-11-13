@@ -1,12 +1,13 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ *  Este servlet obtiene la lista de las revistas de la BD.
+ *
+ *  Karla Ximena Islas Cruz ID: 213090
+ *  Gabriel Francisco Piñuelas Ramos ID: 230626
  */
 package acciones;
 
 import interfaces.IPersistencia;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,10 +19,6 @@ import objetosNegocio.Revista;
 import objetosTransferencia.Lista;
 import persistencia.PersistenciaBD;
 
-/**
- *
- * @author xmnislas
- */
 public class ObtenRevistas extends HttpServlet {
 
     /**

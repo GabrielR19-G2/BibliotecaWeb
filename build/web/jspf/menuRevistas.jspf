@@ -11,8 +11,8 @@
 
 <nav id="navegador">
     <a href ="control?tarea=agregarRevista">Agregar revista</a>
-    <a href = "seleccionaRevistaActualizar.jsp">Actualizar revista</a>
-    <a href = "seleccionaRevistasEliminar.jsp">Eliminar revistas</a>
-    <a href = "despliegaRevistas.jsp">Consultar revistas</a>
+    <a href = "control?tarea=actualizarRevista">Actualizar revista</a>
+    <a href = "control?tarea=eliminarRevistas">Eliminar revistas</a>
+    <a href = "control?tarea=listarRevistas">Consultar revistas</a>
     <a href = "index.jsp">Regresar a menú principal</a>
 </nav>

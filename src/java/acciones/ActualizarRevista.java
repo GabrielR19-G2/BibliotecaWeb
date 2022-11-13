@@ -1,8 +1,6 @@
 /*
- *  Este servlet valida los datos de una revista y la agrega a la BD.
- *
- *  Karla Ximena Islas Cruz ID: 213090
- *  Gabriel Francisco Piñuelas Ramos ID: 230626
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 package acciones;
 
@@ -21,7 +19,11 @@ import objetosTransferencia.Mensaje;
 import persistencia.PersistenciaBD;
 import utils.Validaciones;
 
-public class AgregaRevista extends HttpServlet {
+/**
+ *
+ * @author xmnislas
+ */
+public class ActualizarRevista extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,23 +37,22 @@ public class AgregaRevista extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd;
         Validaciones validaciones = new Validaciones();
+        String campo;
 
-        // Valida los datos de la revista
+        // valida los datos de la revista
         Map<String, Mensaje> mensajes = validaciones.validaRevista(request);
 
         // Si la validación falla
         if (!mensajes.isEmpty()) {
+            // Crea la variable de solicitud mensajes, con los mensajes de error
             request.setAttribute("mensajes", mensajes);
 
-            // Establece que la página siguiente es capturaRevista.jsp
-            rd = request.getRequestDispatcher("capturaRevista.jsp");
+            // Redirecciona a la pagina JSP editaRevista.jsp
+            rd = request.getRequestDispatcher("editaRevista.jsp");
         } else {
-            // En este bean de tipo Revista, se almacenan los atributos de una
-            //  revista enviada por la página capturaRevista.jsp.
             Revista revista = new Revista();
-            String campo;
 
-            // Obtiene de la solicitud los datos de una revista y los guarda al bean revista
+            // Llena el bean revista con los datos capturados en la página editaRevista.jsp
             revista.setIsbn((String) request.getParameter("isbn"));
             revista.setTitulo((String) request.getParameter("titulo"));
             revista.setClasificacion((String) request.getParameter("clasificacion"));
@@ -61,12 +62,6 @@ public class AgregaRevista extends HttpServlet {
                 revista.setEditorial(campo);
             else 
                 revista.setEditorial(null);
-            
-            campo = request.getParameter("clasificacion");
-            if(!campo.equals(""))
-                revista.setClasificacion(campo);
-            else 
-                revista.setClasificacion(null);
             
             campo = request.getParameter("periodicidad");
             if(!campo.equals(""))
@@ -83,8 +78,8 @@ public class AgregaRevista extends HttpServlet {
             // Crea el objeto para acceder a la base de datos
             IPersistencia fachada = new PersistenciaBD();
 
-            // Agrega la nueva canción al catálogo de canciones
-            fachada.agregar(revista);
+            // Actualiza la revista en el catálogo
+            fachada.actualizar(revista);
 
             // Obten el objeto session que contiene a las variables con ámbito de sesion
             HttpSession session = request.getSession();
@@ -92,10 +87,8 @@ public class AgregaRevista extends HttpServlet {
             // Guarda en la variable de sesión tareaSel, la tarea arealizar
             session.setAttribute("tareaSeleccionada", "listarRevistas");
 
-            // Establece la página JSP o servlet siguiente
             rd = request.getRequestDispatcher("obtenRevistas");
         }
-        // Redirecciona a la página JSP o servlet siguiente
         rd.forward(request, response);
     }
 

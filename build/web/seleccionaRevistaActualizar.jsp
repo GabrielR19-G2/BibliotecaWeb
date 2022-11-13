@@ -9,7 +9,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%-- <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>   --%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 
 <!DOCTYPE html>
 <html>
@@ -32,7 +32,7 @@
 
                 <%-- Formulario para capturar una revista a actualizar. El isbn de la revista 
                      se envía al servlet obtenRevista para obtener la revista de la BD --%>
-                <form action="obtenRevistaEditar" method="post">
+                <form action="obtenRevista" method="post">
                     <%-- Tabla donde se muestran los datos de todas las revistas --%>
                     <table id="lista">
 
@@ -52,33 +52,23 @@
                             <th>Fecha</th>
                         </tr> 
 
-                        <tr>
-                            <td><input type="radio" name="isbn" value="${revista.isbn}" /></td>
-                            <td>0986453456325</td>
-                            <td>Harry Potter</td>
-                            <td>Salamandra</td>
-                            <td>A</td>
-                            <td>2002</td>
-                            <td>13/06/10</td>
-                        </tr>
-
                         <%-- Despliega los datos de todas las revistas. Los datos se encuentran en 
                              el bean listaRevistas guardados en el objeto session por el servlet 
                              obtenRevistas. --%>
 
-                        <%-- <c:forEach items="${listaRevistas.lista}" var="revista" >
-                        <%-- Inserta en cada celda de una fila de la tabla uno de los atributos 
-                             de la canción revista 
-                        <tr>
-                            <td><input type="radio" name="isbn" value="${revista.isbn}" /></td>
-                            <td>${revista.isbn}</td>
-                            <td>${revista.titulo}</td>
-                            <td>${revista.editorial}</td>
-                            <td>${revista.clasificacion}</td>
-                            <td>${revista.periodicidad}</td>
-                            <td>${revista.fecha}</td>
-                        </tr>
-                    </c:forEach> --%>
+                        <c:forEach items="${listaRevistas.lista}" var="revista" >
+                            <%-- Inserta en cada celda de una fila de la tabla uno de los atributos 
+                                 de la revista --%>
+                            <tr>
+                                <td><input type="radio" name="isbn" value="${revista.isbn}" /></td>
+                                <td>${revista.isbn}</td>
+                                <td>${revista.titulo}</td>
+                                <td>${revista.editorial}</td>
+                                <td>${revista.clasificacion}</td>
+                                <td>${revista.periodicidad}</td>
+                                <td>${revista.fecha}</td>
+                            </tr>
+                        </c:forEach> 
                     </table>
                     <br />
                     <table class="centrada" >

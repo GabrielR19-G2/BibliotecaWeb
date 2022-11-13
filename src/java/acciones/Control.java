@@ -1,6 +1,9 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ *  Este servlet guarda la tarea seleccionada en la variable de estado, y
+ *  selecciona la página JSP o servlet siguiente.
+ *
+ *  Karla Ximena Islas Cruz ID: 213090
+ *  Gabriel Francisco Piñuelas Ramos ID: 230626
  */
 package acciones;
 
@@ -12,10 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author xmnislas
- */
 public class Control extends HttpServlet {
 
     /**
@@ -50,7 +49,7 @@ public class Control extends HttpServlet {
                 siguiente = "obtenRevistas";
                 break;
             case "listarRevistas":
-                siguiente = "despliegaRevistas.jsp";
+                siguiente = "obtenRevistas";
                 break;
             default:
                 break;
