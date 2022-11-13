@@ -34,7 +34,7 @@
                 <c:choose>
                     <c:when test="${revista != null}">
                         <%-- Formulario para modificar los atributos de una revista.
-                             Los datos se envían al servlet actualizaRevista para actualizar la revista en la BD.
+                             Los datos se envían al servlet actualizarRevista para actualizar la revista en la BD.
                              Este formulario se usa la primera vez que se intenta modificar los atributos de la revista.
                         --%>
                         <form action="actualizarRevista" method="post" name="editaRevista" >

@@ -3,11 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/xmnis/OneDrive/Documentos/NetBeansProjects/bibliotecaWeb/src/java/acciones/ObtenRevista.java</file>
-            <file>file:/C:/Users/xmnis/OneDrive/Documentos/NetBeansProjects/bibliotecaWeb/src/java/acciones/Control.java</file>
-            <file>file:/C:/Users/xmnis/OneDrive/Documentos/NetBeansProjects/bibliotecaWeb/src/java/acciones/AgregaRevista.java</file>
-            <file>file:/C:/Users/xmnis/OneDrive/Documentos/NetBeansProjects/bibliotecaWeb/web/jspf/menuRevistas.jspf</file>
-            <file>file:/C:/Users/xmnis/OneDrive/Documentos/NetBeansProjects/bibliotecaWeb/web/despliegaRevista.jsp</file>
+            <file>file:/C:/Users/xmnis/OneDrive/Documentos/GITHUB/BibliotecaWeb/src/java/acciones/EliminarRevistas.java</file>
+            <file>file:/C:/Users/xmnis/OneDrive/Documentos/GITHUB/BibliotecaWeb/src/java/acciones/ActualizarRevista.java</file>
+            <file>file:/C:/Users/xmnis/OneDrive/Documentos/GITHUB/BibliotecaWeb/src/java/acciones/Control.java</file>
         </group>
     </open-files>
 </project-private>

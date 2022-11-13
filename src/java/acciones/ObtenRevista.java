@@ -71,16 +71,14 @@ public class ObtenRevista extends HttpServlet {
                 // Crea la variable de solicitud revista, con la revista existente
                 request.setAttribute("revista", revista);
 
-                siguiente = "despliegaRevista.jsp";
-            } else {
-                switch (tareaSeleccionada) {
-                    case "agregarRevista":
-                        siguiente = "capturaRevista.jsp";
-                        break;
-                    case "actualizarRevista":
-                        siguiente = "editaRevista.jsp";
-                        break;
+                if ("actualizarRevista".equals(tareaSeleccionada)) {
+                    siguiente = "editaRevista.jsp";
+                } else {
+                    siguiente = "despliegaRevista.jsp";
                 }
+
+            } else {
+                siguiente = "capturaRevista.jsp";
             }
 
             // Establece la página JSP o servlet siguiente
