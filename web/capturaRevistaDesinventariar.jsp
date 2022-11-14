@@ -30,7 +30,7 @@
                 <%-- Formulario para capturar los atributos de una revista.
                      Los datos se envían al servlet agregaRevista para
                      guardarlos en la BD --%>
-                <form action="inventariarRevista" method="post" name="capturaRevista" >
+                <form action="desinventariarRevista" method="post" name="capturaRevista" >
                     <div class="contenedorFormulario">
                         <div class="centrada">
                             <label class="derecha">Seleccionar revista*</label>

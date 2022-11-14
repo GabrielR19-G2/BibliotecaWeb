@@ -61,14 +61,14 @@ public class InventariarRevista {
             } else {
                 revista.setEditorial(null);
             }
-
+            
             campo = request.getParameter("clasificacion");
             if (!campo.equals("")) {
                 revista.setClasificacion(campo);
             } else {
                 revista.setClasificacion(null);
             }
-
+            
             campo = request.getParameter("periodicidad");
             if (!campo.equals("")) {
                 revista.setPeriodicidad(campo);
